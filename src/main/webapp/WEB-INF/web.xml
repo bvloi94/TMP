@@ -14,7 +14,7 @@
 
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
 
     <!-- Other XML Configuration -->
@@ -24,10 +24,13 @@
         <param-value>/WEB-INF/spring-servlet.xml</param-value>
     </context-param>
 
-
     <!-- Spring ContextLoaderListener -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <welcome-file-list>
+        <welcome-file>/Home.htm</welcome-file>
+    </welcome-file-list>
 
 </web-app>

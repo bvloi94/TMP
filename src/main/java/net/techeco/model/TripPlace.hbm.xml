@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.techeco.model.TripPlace" table="TripPlace" schema="dbo" catalog="T1P">
+        <id name="id" column="Id"/>
+        <property name="tripId" column="TripId"/>
+        <property name="placeId" column="PlaceId"/>
+        <property name="nextTripPlaceId" column="NextTripPlaceId"/>
+        <property name="vehicle" column="Vehicle"/>
+    </class>
+</hibernate-mapping>

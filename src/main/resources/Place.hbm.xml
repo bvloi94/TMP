@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.techeco.model.Place" table="Place" schema="dbo" catalog="T1P">
+        <id name="id" column="Id"/>
+        <property name="name" column="Name"/>
+        <property name="address" column="Address"/>
+        <property name="imagePath" column="ImagePath"/>
+        <property name="description" column="Description"/>
+        <property name="latitude" column="Latitude"/>
+        <property name="longitude" column="Longitude"/>
+    </class>
+</hibernate-mapping>

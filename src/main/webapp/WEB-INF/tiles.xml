@@ -1,0 +1,148 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="main-layout" template="/WEB-INF/layout/main-layout.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="menu" />
+		<put-attribute name="body" />
+		<put-attribute name="footer" />
+		<put-list-attribute name="css" />
+		<put-list-attribute name="js" />
+	</definition>
+
+	<definition name="admin-layout" template="/WEB-INF/layout/admin-layout.jsp">
+		<put-attribute name="title" />
+		<put-attribute name="menu" />
+		<put-attribute name="body" />
+		<put-attribute name="footer" />
+		<put-list-attribute name="css" />
+		<put-list-attribute name="js" />
+	</definition>
+
+	<!-- Login and register page -->	
+	<definition name="ManageTrips" extends="main-layout">
+		<put-attribute name="title" value="Your Trips" />
+		<put-attribute name="menu" value="/WEB-INF/layout/main-menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/ManageTrips.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/main-footer.jsp" />
+		<put-list-attribute name="js">
+			<add-attribute value="/resources/bootstrap/bootstrap.min.js" />
+			<add-attribute value="/resources/jquery/jquery-1.12.1.min.js" />
+			<add-attribute value="/resources/jquery/responsiveslides.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/resources/css/main.css" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="CreateNewTrip" extends="main-layout">
+		<put-attribute name="title" value="Create New Trip" />
+		<put-attribute name="menu" value="/WEB-INF/layout/main-menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/CreateNewTrip.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/main-footer.jsp" />
+		<put-list-attribute name="js">
+			<add-attribute value="/resources/jquery/jquery-1.12.1.min.js" />
+			<add-attribute value="/resources/bootstrap/bootstrap.min.js" />
+			<add-attribute value="/resources/daterangepicker/moment.min.js" />
+			<add-attribute value="/resources/daterangepicker/daterangepicker.js" />
+			<add-attribute value="/resources/jquery/responsiveslides.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/resources/css/main.css" />
+			<add-attribute value="/resources/css/AdminLTE.min.css" />
+			<add-attribute value="/resources/css/font-awesome.min.css" />
+			<add-attribute value="/resources/daterangepicker/daterangepicker-bs3.css" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="Login" extends="main-layout">
+		<put-attribute name="title" value="Login Page" />
+		<put-attribute name="menu" value="/WEB-INF/layout/main-menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/Login.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/main-footer.jsp" />
+		<put-list-attribute name="js">
+			<add-attribute value="/resources/bootstrap/bootstrap.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/resources/css/main.css" />
+			<add-attribute value="/resources/bootstrap/bootstrap.min.css" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Home page -->
+	<definition name="Home" extends="main-layout">
+		<put-attribute name="title" value="Home Page" />
+		<put-attribute name="menu" value="/WEB-INF/layout/main-menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/Home.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/main-footer.jsp" />
+		<put-list-attribute name="js">
+			<add-attribute value="/resources/bootstrap/bootstrap.min.js" />
+			<add-attribute value="/resources/jquery/modernizr.custom.js" />
+			<add-attribute value="/resources/jquery/move-top.js" />
+			<add-attribute value="/resources/jquery/easing.js" />
+			<add-attribute value="/resources/jquery/responsiveslides.min.js" />
+
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/resources/css/main.css" />
+			<add-attribute
+				value="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+			<add-attribute value="http://fonts.googleapis.com/css?family=Playball" />
+			<add-attribute value="/resources/css/main.css" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Manage page admin -->
+	<definition name="AdminHome" extends="admin-layout">
+		<put-attribute name="title" value="Statistic" />
+		<put-attribute name="menu" value="/WEB-INF/layout/admin-menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/AdminHome.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/main-footer.jsp" />
+		<put-list-attribute name="js">
+			<add-attribute value="/resources/bootstrap/bootstrap.min.js" />
+			<add-attribute value="/resources/jquery/jquery.dataTables.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/resources/css/main.css" />
+			
+			<add-attribute value="/resources/css/simple-sidebar.css" />
+			<add-attribute value="/resources/css/font-awesome.min.css" />
+			<add-attribute value="/resources/css/jquery.dataTables.min.css" />
+			<add-attribute value="/resources/css/AdminLTE.min.css" />
+			<add-attribute value="/resources/css/ionicons.min.css" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="AdminManageUserAccount" extends="admin-layout">
+		<put-attribute name="title" value="Manage User Account Page" />
+		<put-attribute name="menu" value="/WEB-INF/layout/admin-menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/AdminManageUserAccount.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/main-footer.jsp" />
+		<put-list-attribute name="js">
+			<add-attribute value="/resources/bootstrap/bootstrap.min.js" />
+			<add-attribute value="/resources/jquery/jquery.dataTables.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/resources/css/main.css" />
+			<add-attribute value="/resources/css/simple-sidebar.css" />
+			<add-attribute value="/resources/css/jquery.dataTables.min.css" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="AdminManageSelfAccount" extends="admin-layout">
+		<put-attribute name="title" value="Manage Self Account Page" />
+		<put-attribute name="menu" value="/WEB-INF/layout/admin-menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/AdminManageSelfAccount.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/main-footer.jsp" />
+		<put-list-attribute name="js">
+			<add-attribute value="/resources/bootstrap/bootstrap.min.js" />
+			<add-attribute value="/resources/bootstrap/bootstrap.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/resources/css/main.css" />
+			<add-attribute value="/resources/css/simple-sidebar.css" />
+		</put-list-attribute>
+	</definition>
+</tiles-definitions>

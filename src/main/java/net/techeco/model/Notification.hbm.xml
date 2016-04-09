@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="net.techeco.model.Notification" table="Notification" schema="dbo" catalog="T1P">
+        <id name="id" column="Id"/>
+        <property name="senderId" column="SenderId"/>
+        <property name="receiverId" column="ReceiverId"/>
+        <property name="type" column="Type"/>
+        <property name="message" column="Message"/>
+        <property name="isReaded" column="IsReaded"/>
+    </class>
+</hibernate-mapping>
