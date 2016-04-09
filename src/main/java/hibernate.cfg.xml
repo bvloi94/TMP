@@ -4,8 +4,19 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:sqlserver://123.31.26.74:1433;databaseName=T1P</property>
-        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.password">zaq!2345</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://123.31.26.74:1433;databaseName=T1P</property>
+        <property name="hibernate.connection.username">t1p</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+
+        <property name="show_sql">true</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
         <mapping class="net.techeco.model.Account"/>
         <mapping class="net.techeco.model.AccountRole"/>
         <mapping class="net.techeco.model.Notification"/>
@@ -20,20 +31,20 @@
         <mapping class="net.techeco.model.TripPlace"/>
         <mapping class="net.techeco.model.TripPreparation"/>
         <mapping class="net.techeco.model.TripRole"/>
-        <mapping resource="net/techeco/model/Account.hbm.xml"/>
-        <mapping resource="net/techeco/model/AccountRole.hbm.xml"/>
-        <mapping resource="net/techeco/model/Notification.hbm.xml"/>
-        <mapping resource="net/techeco/model/Place.hbm.xml"/>
-        <mapping resource="net/techeco/model/PrepareObject.hbm.xml"/>
-        <mapping resource="net/techeco/model/Transaction.hbm.xml"/>
-        <mapping resource="net/techeco/model/TransactionCategory.hbm.xml"/>
-        <mapping resource="net/techeco/model/Trip.hbm.xml"/>
-        <mapping resource="net/techeco/model/TripFund.hbm.xml"/>
-        <mapping resource="net/techeco/model/TripMember.hbm.xml"/>
-        <mapping resource="net/techeco/model/TripMemberPreparation.hbm.xml"/>
-        <mapping resource="net/techeco/model/TripPlace.hbm.xml"/>
-        <mapping resource="net/techeco/model/TripPreparation.hbm.xml"/>
-        <mapping resource="net/techeco/model/TripRole.hbm.xml"/>
+        <mapping resource="Account.hbm.xml"/>
+        <mapping resource="AccountRole.hbm.xml"/>
+        <mapping resource="Notification.hbm.xml"/>
+        <mapping resource="Place.hbm.xml"/>
+        <mapping resource="PrepareObject.hbm.xml"/>
+        <mapping resource="Transaction.hbm.xml"/>
+        <mapping resource="TransactionCategory.hbm.xml"/>
+        <mapping resource="Trip.hbm.xml"/>
+        <mapping resource="TripFund.hbm.xml"/>
+        <mapping resource="TripMember.hbm.xml"/>
+        <mapping resource="TripMemberPreparation.hbm.xml"/>
+        <mapping resource="TripPlace.hbm.xml"/>
+        <mapping resource="TripPreparation.hbm.xml"/>
+        <mapping resource="TripRole.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
