@@ -1,20 +1,20 @@
 package net.techeco.dao.concrete;
 
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.techeco.dao.CommonDAO;
 import net.techeco.dao.IAccountDAO;
 import net.techeco.model.Account;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.StringType;
 
 import net.techeco.util.HibernateUtil;
 
-public class AccountDAO implements IAccountDAO {
+public class AccountDAO extends CommonDAO<Account> implements IAccountDAO {
 
     SessionFactory sessionFactory;
 
@@ -42,26 +42,14 @@ public class AccountDAO implements IAccountDAO {
         return accounts;
     }
 
-    public Object getAccount(String email) {
+    public Account getAccountByEmail(String email) {
         Session session = sessionFactory.openSession();
-        Object user = null;
+        Account user = null;
         try {
             session.getTransaction().begin();
-
-            String sql = "select * from Account a where a.Email = :Email";
-            Query query = session.createSQLQuery(sql)
-                    .addScalar("Id", StandardBasicTypes.INTEGER)
-                    .addScalar("Email", StandardBasicTypes.STRING)
-                    .addScalar("Password", StandardBasicTypes.STRING)
-                    .addScalar("Phone", StandardBasicTypes.STRING)
-                    .addScalar("Avatar", StandardBasicTypes.STRING)
-                    .addScalar("Fullname", StandardBasicTypes.STRING)
-                    .addScalar("RoleId", StandardBasicTypes.INTEGER)
-                    .addScalar("IsActive", StandardBasicTypes.BOOLEAN);
-
-            query.setParameter("Email", email);
-            user = query.uniqueResult();
-
+            Criteria crit = session.createCriteria(Account.class);
+            crit.add(Restrictions.like("email", email));
+            user = (Account) crit.uniqueResult();
             session.getTransaction().commit();
         } catch (HibernateException e) {
             session.getTransaction().rollback();

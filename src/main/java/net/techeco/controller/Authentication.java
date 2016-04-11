@@ -6,7 +6,6 @@ package net.techeco.controller;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import net.techeco.AjaxResponse;
 import net.techeco.dao.concrete.AccountDAO;
 import net.techeco.model.Account;
 import net.techeco.model.LoginCriteria;
@@ -49,12 +48,12 @@ public class Authentication {
         System.out.println(account.getEmail());
         System.out.println(account.getPassword());
         if (result) {
-            Object info = accountDAO.getAccount(account.getEmail());
+            Object info = accountDAO.getAccountByEmail(account.getEmail());
 
             try {
 //                data.setResult("true");
 //                data.setData((Account) info);
-                node.put("result", true);
+                node.put("success", true);
                 node.set("data", mapper.valueToTree(info));
                 session.setAttribute("result", true);
             } catch (Exception e) {
