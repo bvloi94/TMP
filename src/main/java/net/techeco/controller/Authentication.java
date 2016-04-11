@@ -49,13 +49,14 @@ public class Authentication {
         System.out.println(account.getEmail());
         System.out.println(account.getPassword());
         if (result) {
-            Object info = accountDAO.getAccount(account.getEmail());
+            Account acc = accountDAO.getAccountByEmail(account.getEmail());
 
             try {
 //                data.setResult("true");
 //                data.setData((Account) info);
-                node.put("result", true);
-                node.set("data", mapper.valueToTree(info));
+                node.put("success", true);
+                node.put("message", "");
+                node.set("data", mapper.valueToTree(acc));
                 session.setAttribute("result", true);
             } catch (Exception e) {
                 System.out.println(e);

@@ -51,7 +51,7 @@
 			    },
 				data	: JSON.stringify(account),
 				success	: function(data) {
-					if(data.result) {
+					if(data.success) {
 						window.location.href = "/usr/ManageTrips.htm";
 					} else {
 						alert("Login fail!");

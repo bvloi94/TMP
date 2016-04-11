@@ -17,5 +17,5 @@ public interface IAccountDAO {
 	public List<Account> getAllUser();
 	
 	
-	public Object getAccount(String email);
+	public Object getAccountByEmail(String email);
 }

@@ -4,8 +4,10 @@ import net.techeco.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.dialect.SQLServerDialect;
+import org.hibernate.type.StringType;
 
+import java.sql.Types;
 import java.util.List;
 
 /**
@@ -13,6 +15,8 @@ import java.util.List;
  */
 public abstract class CommonDAO<T> {
 
+    public CommonDAO() {
+    }
 
     public <T> List<T> getAll(final Class<T> type) {
         List<T> obj = null;
